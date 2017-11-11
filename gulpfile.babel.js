@@ -39,7 +39,7 @@ gulp.task('lint:js', function() {
 		.pipe(plumber())
 		.pipe(eslint({
 			'rules':{
-				'indent': [1, 'tab'],
+				'indent': ['error', 2],
 				'quotes': [1, 'single'],
 				'semi': [1, 'always']
 			}

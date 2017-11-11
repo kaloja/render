@@ -10,32 +10,32 @@
 
 (function (root) {
 
-	'use strict';
+  'use strict';
 
-	const RENDER = (type, elem, callback, capture) => {
-		const animate = window.requestAnimationFrame;
-		let ticking = false;
+  const RENDER = (type, elem, callback, capture) => {
+    const animate = window.requestAnimationFrame;
+    let ticking = false;
 
-		// Only call animate when update is ready:
-		const requestRender = () => {
-			if (!ticking) {
-				animate(update);
-				ticking = true;
-			}
-		};
+    // Only call animate when update is ready:
+    const requestRender = () => {
+      if (!ticking) {
+        animate(update);
+        ticking = true;
+      }
+    };
 
-		// Update the render callback:
-		const update = () => {
-			callback();
+    // Update the render callback:
+    const update = () => {
+      callback();
 
-			// Reset the tick, so we can capture the next event with requestRender:
-			ticking = false;
-		};
+      // Reset the tick, so we can capture the next event with requestRender:
+      ticking = false;
+    };
 
-		// Listen for specified event:
-		elem.addEventListener(type, requestRender, !!capture);
-	}
+    // Listen for specified event:
+    elem.addEventListener(type, requestRender, !!capture);
+  }
 
-	root.render = RENDER;
+  root.render = RENDER;
 
 })(window);
