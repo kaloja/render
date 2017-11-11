@@ -8,7 +8,7 @@ Render is your friend when you need to perform a repeated visual task in an effi
 
 ```javascript
 const callback = () => {
-	console.log('Render this message on scroll');
+  console.log('Render this message on scroll');
 }
 
 render('scroll', window, callback);
